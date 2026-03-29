@@ -23,53 +23,36 @@
         td { padding: 10px 12px; font-size: 12px; border-bottom: 1px solid rgba(255,255,255,0.05); }
         @media (min-width: 768px) { th { padding: 15px; } td { padding: 15px; font-size: 13px; } }
 
-        /* Status badges */
         .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 9px; font-weight: 800; text-transform: uppercase; }
         .badge-proposta { background: rgba(255, 200, 0, 0.15); color: #ffc800; border: 1px solid rgba(255,200,0,0.3); }
         .badge-fechado { background: rgba(77, 182, 150, 0.15); color: #4db696; border: 1px solid rgba(77,182,150,0.3); }
         .badge-pago { background: rgba(77, 182, 150, 0.3); color: #4db696; border: 1px solid #4db696; }
         .badge-pendente { background: rgba(255,100,80,0.1); color: #ff8070; border: 1px solid rgba(255,100,80,0.3); }
 
-        /* Pipeline cards */
         .pipeline-card { background: rgba(255,255,255,0.04); border: 1px solid var(--fs-border); border-radius: 16px; padding: 20px; transition: all 0.2s; }
         .pipeline-card:hover { background: rgba(255,255,255,0.07); border-color: rgba(77,182,150,0.4); }
 
-        /* DESIGN DO PDF (ALTA FIDELIDADE - BRANCO) */
-        #pdf-render { 
-            background: #ffffff !important; 
-            color: #1a1a1a !important; 
-            width: 800px; 
-            padding: 60px; 
-            position: absolute; 
-            left: -9999px; 
-            font-family: Arial, sans-serif;
-            display: block;
+        #pdf-render {
+            background: #ffffff !important; color: #1a1a1a !important;
+            width: 800px; padding: 60px; position: absolute;
+            left: -9999px; font-family: Arial, sans-serif; display: block;
         }
-
-        /* PDF de Cobrança */
         #pdf-cobranca {
-            background: #ffffff !important;
-            color: #1a1a1a !important;
-            width: 800px;
-            padding: 60px;
-            position: absolute;
-            left: -9999px;
-            font-family: Arial, sans-serif;
-            display: block;
+            background: #ffffff !important; color: #1a1a1a !important;
+            width: 800px; padding: 60px; position: absolute;
+            left: -9999px; font-family: Arial, sans-serif; display: block;
         }
 
-        /* Toggle switch */
-        .toggle-pill { 
-            display: flex; background: rgba(0,0,0,0.4); border: 1px solid var(--fs-border); 
+        .toggle-pill {
+            display: flex; background: rgba(0,0,0,0.4); border: 1px solid var(--fs-border);
             border-radius: 30px; padding: 4px; gap: 4px; width: fit-content;
         }
-        .toggle-opt { 
-            padding: 6px 18px; border-radius: 24px; font-size: 10px; font-weight: 800; 
+        .toggle-opt {
+            padding: 6px 18px; border-radius: 24px; font-size: 10px; font-weight: 800;
             text-transform: uppercase; cursor: pointer; transition: all 0.2s; opacity: 0.4;
         }
         .toggle-opt.active { background: var(--fs-mint); color: #0f0e26; opacity: 1; }
 
-        /* Botão baixa */
         .btn-baixa { background: rgba(77,182,150,0.1); border: 1px solid rgba(77,182,150,0.4); color: #4db696; padding: 4px 12px; border-radius: 8px; font-size: 9px; font-weight: 800; cursor: pointer; text-transform: uppercase; transition: all 0.2s; }
         .btn-baixa:hover { background: rgba(77,182,150,0.25); }
         .btn-baixa.pago { background: rgba(77,182,150,0.25); color: #4db696; cursor: default; opacity: 0.6; }
@@ -77,6 +60,7 @@
 </head>
 <body>
     <div class="vision-container">
+
         <!-- HEADER -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 md:mb-10 border-b border-white/10 pb-6 md:pb-8 gap-4">
             <img src="Logo.png" alt="Fairstage" style="max-width: 140px;" onerror="this.style.display='none'">
@@ -87,7 +71,7 @@
             </div>
         </div>
 
-        <!-- TABS: agora 4 abas -->
+        <!-- TABS -->
         <div class="flex gap-2 md:gap-8 mb-8 md:mb-10 border-b border-white/5 overflow-x-auto pb-px">
             <button id="btn-pipeline" class="tab-btn active" onclick="switchTab('pipeline')">0. Pipeline</button>
             <button id="btn-lançar" class="tab-btn" onclick="switchTab('lançar')">1. Log de Jobs</button>
@@ -95,12 +79,9 @@
             <button id="btn-historico" class="tab-btn" onclick="switchTab('historico')">3. Base Contábil</button>
         </div>
 
-        <!-- ══════════════════════════════════════════════════════ -->
-        <!-- ABA 0: PIPELINE DE PROPOSTAS                          -->
-        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- ABA 0: PIPELINE -->
         <div id="tab-pipeline" class="tab-content">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
-                <!-- Formulário de proposta -->
                 <div class="glass-card p-8 space-y-5">
                     <h3 class="text-xs font-bold uppercase mint-text">Nova Proposta / Orçamento</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -117,7 +98,6 @@
                         <button onclick="gerarPDFProposta()" class="flex-1 bg-[#4db696]/10 text-[#4db696] border border-[#4db696]/30 py-3 rounded-xl font-bold uppercase text-xs active:scale-95 transition-all">📄 Gerar PDF</button>
                     </div>
                 </div>
-                <!-- Resumo / instrução -->
                 <div class="glass-card p-8 flex flex-col justify-between">
                     <div>
                         <h3 class="text-xs font-bold uppercase opacity-40 mb-4">Funil de Vendas</h3>
@@ -126,8 +106,6 @@
                     <p class="text-[10px] opacity-30 italic">Use "Converter em Job" para mover um orçamento aprovado para o Log de Jobs e Base Contábil.</p>
                 </div>
             </div>
-
-            <!-- Lista de propostas -->
             <h4 class="text-[10px] font-bold uppercase opacity-40 mb-4">Propostas em Aberto</h4>
             <div class="glass-card overflow-x-auto">
                 <table>
@@ -137,9 +115,7 @@
             </div>
         </div>
 
-        <!-- ══════════════════════════════════════════════════════ -->
-        <!-- ABA 1: LOG DE JOBS (antigo "Lançar")                  -->
-        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- ABA 1: LOG DE JOBS -->
         <div id="tab-lançar" class="tab-content hidden">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="glass-card p-6 md:p-8 space-y-6">
@@ -163,11 +139,8 @@
             </div>
         </div>
 
-        <!-- ══════════════════════════════════════════════════════ -->
-        <!-- ABA 2: FLUXO DE CAIXA (Dashboard)                     -->
-        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- ABA 2: FLUXO DE CAIXA -->
         <div id="tab-dashboard" class="tab-content hidden">
-            <!-- Filtro: Todos / Apenas Pago -->
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 flex-wrap gap-4">
                 <div class="flex flex-wrap items-center gap-3 md:gap-4">
                     <select id="viewMonth" class="w-36 md:w-40" onchange="updateUI()">
@@ -212,9 +185,7 @@
             </div>
         </div>
 
-        <!-- ══════════════════════════════════════════════════════ -->
-        <!-- ABA 3: BASE CONTÁBIL                                  -->
-        <!-- ══════════════════════════════════════════════════════ -->
+        <!-- ABA 3: BASE CONTÁBIL -->
         <div id="tab-historico" class="tab-content hidden">
             <div class="flex justify-between items-center mb-6">
                 <h3 class="text-xs font-bold uppercase tracking-widest mint-text underline">Base Contábil Permanente</h3>
@@ -224,14 +195,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Mês Rec.</th>
-                            <th>Job</th>
-                            <th>Valor Evento</th>
-                            <th>Tipo</th>
-                            <th>Sobra Real</th>
-                            <th>Status</th>
-                            <th>Docs</th>
-                            <th>Ação</th>
+                            <th>Mês Rec.</th><th>Job</th><th>Valor Evento</th><th>Tipo</th>
+                            <th>Sobra Real</th><th>Status</th><th>Docs</th><th>Ação</th>
                         </tr>
                     </thead>
                     <tbody id="dbBody"></tbody>
@@ -240,70 +205,49 @@
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- PDF DE PROPOSTA COMERCIAL                                   -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- PDF PROPOSTA -->
     <div id="pdf-render">
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #0f0e26; padding-bottom: 20px; margin-bottom: 40px;">
-            <img src="Logo.png" style="height: 55px;" onerror="this.src='https://via.placeholder.com/200x50?text=FAIRSTAGE'">
-            <div style="text-align: right;">
-                <h2 style="margin: 0; font-size: 18px; color: #0f0e26;">PROPOSTA COMERCIAL</h2>
-                <p id="pdf-ref" style="font-size: 10px; color: #888; margin-top: 5px;"></p>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid #0f0e26;padding-bottom:20px;margin-bottom:40px;">
+            <img src="Logo.png" style="height:55px;" onerror="this.src='https://via.placeholder.com/200x50?text=FAIRSTAGE'">
+            <div style="text-align:right;">
+                <h2 style="margin:0;font-size:18px;color:#0f0e26;">PROPOSTA COMERCIAL</h2>
+                <p id="pdf-ref" style="font-size:10px;color:#888;margin-top:5px;"></p>
             </div>
         </div>
-        <div style="margin-bottom: 30px;"><p style="font-size: 10px; text-transform: uppercase; color: #888; margin-bottom: 5px;">Projeto / Cliente</p><h3 id="pdf-client" style="margin: 0; font-size: 24px; color: #0f0e26; font-weight: 800;"></h3></div>
-        <div style="background: #f0fdf4; border-left: 8px solid #4db696; padding: 35px; margin-bottom: 30px;"><p style="font-size: 10px; text-transform: uppercase; color: #4db696; font-weight: 800; margin-bottom: 10px;">Investimento Total Estimado</p><h1 id="pdf-total" style="margin: 0; font-size: 40px; color: #0f0e26;"></h1></div>
-        <div style="border: 1px solid #eee; border-radius: 15px; padding: 25px; margin-bottom: 30px;"><p style="font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 15px; color: #666;">Plano de Pagamento</p><table style="width: 100%; font-size: 15px; color: #333;"><tbody id="pdf-table-body"></tbody></table></div>
-        <div style="margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; font-size: 10px; color: #999; line-height: 1.6;">
+        <div style="margin-bottom:30px;"><p style="font-size:10px;text-transform:uppercase;color:#888;margin-bottom:5px;">Projeto / Cliente</p><h3 id="pdf-client" style="margin:0;font-size:24px;color:#0f0e26;font-weight:800;"></h3></div>
+        <div style="background:#f0fdf4;border-left:8px solid #4db696;padding:35px;margin-bottom:30px;"><p style="font-size:10px;text-transform:uppercase;color:#4db696;font-weight:800;margin-bottom:10px;">Investimento Total Estimado</p><h1 id="pdf-total" style="margin:0;font-size:40px;color:#0f0e26;"></h1></div>
+        <div style="border:1px solid #eee;border-radius:15px;padding:25px;margin-bottom:30px;"><p style="font-size:11px;font-weight:800;text-transform:uppercase;margin-bottom:15px;color:#666;">Plano de Pagamento</p><table style="width:100%;font-size:15px;color:#333;"><tbody id="pdf-table-body"></tbody></table></div>
+        <div style="margin-top:40px;border-top:1px solid #eee;padding-top:20px;font-size:10px;color:#999;line-height:1.6;">
             <strong>Fairstage Intelligence Audiovisual</strong><br>
             * Validade: 05 dias úteis. Início da produção ocorre após confirmação do sinal.
         </div>
     </div>
 
-    <!-- ═══════════════════════════════════════════════════════════ -->
-    <!-- PDF DE COBRANÇA (com PIX)                                  -->
-    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- PDF COBRANÇA -->
     <div id="pdf-cobranca">
-        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 4px solid #0f0e26; padding-bottom: 20px; margin-bottom: 40px;">
-            <img src="Logo.png" style="height: 55px;" onerror="this.src='https://via.placeholder.com/200x50?text=FAIRSTAGE'">
-            <div style="text-align: right;">
-                <h2 style="margin: 0; font-size: 18px; color: #0f0e26;">COBRANÇA</h2>
-                <p id="cob-ref" style="font-size: 10px; color: #888; margin-top: 5px;"></p>
+        <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:4px solid #0f0e26;padding-bottom:20px;margin-bottom:40px;">
+            <img src="Logo.png" style="height:55px;" onerror="this.src='https://via.placeholder.com/200x50?text=FAIRSTAGE'">
+            <div style="text-align:right;">
+                <h2 style="margin:0;font-size:18px;color:#0f0e26;">COBRANÇA</h2>
+                <p id="cob-ref" style="font-size:10px;color:#888;margin-top:5px;"></p>
             </div>
         </div>
-        <div style="margin-bottom: 30px;"><p style="font-size: 10px; text-transform: uppercase; color: #888; margin-bottom: 5px;">Projeto / Cliente</p><h3 id="cob-client" style="margin: 0; font-size: 24px; color: #0f0e26; font-weight: 800;"></h3></div>
-
-        <!-- Valor de cobrança -->
-        <div style="background: #fff8e1; border-left: 8px solid #f59e0b; padding: 35px; margin-bottom: 30px;">
-            <p style="font-size: 10px; text-transform: uppercase; color: #f59e0b; font-weight: 800; margin-bottom: 10px;">Valor a Receber</p>
-            <h1 id="cob-valor" style="margin: 0; font-size: 40px; color: #0f0e26;"></h1>
-            <p id="cob-tipo" style="margin: 8px 0 0; font-size: 13px; color: #666;"></p>
+        <div style="margin-bottom:30px;"><p style="font-size:10px;text-transform:uppercase;color:#888;margin-bottom:5px;">Projeto / Cliente</p><h3 id="cob-client" style="margin:0;font-size:24px;color:#0f0e26;font-weight:800;"></h3></div>
+        <div style="background:#fff8e1;border-left:8px solid #f59e0b;padding:35px;margin-bottom:30px;">
+            <p style="font-size:10px;text-transform:uppercase;color:#f59e0b;font-weight:800;margin-bottom:10px;">Valor a Receber</p>
+            <h1 id="cob-valor" style="margin:0;font-size:40px;color:#0f0e26;"></h1>
+            <p id="cob-tipo" style="margin:8px 0 0;font-size:13px;color:#666;"></p>
         </div>
-
-        <!-- Dados de pagamento PIX -->
-        <div style="border: 2px solid #4db696; border-radius: 15px; padding: 30px; margin-bottom: 30px; background: #f0fdf4;">
-            <p style="font-size: 11px; font-weight: 800; text-transform: uppercase; color: #4db696; margin-bottom: 20px;">📱 Dados para Pagamento — PIX</p>
-            <table style="width: 100%; font-size: 14px; color: #333;">
-                <tr>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #d1fae5; color: #666; width: 40%;">Chave PIX</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #d1fae5; font-weight: 800; font-size: 18px;">11983456947</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #d1fae5; color: #666;">Tipo de Chave</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #d1fae5; font-weight: 700;">Celular</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #d1fae5; color: #666;">Favorecido</td>
-                    <td style="padding: 10px 0; border-bottom: 1px solid #d1fae5; font-weight: 700;">Fairstage Intelligence Audiovisual</td>
-                </tr>
-                <tr>
-                    <td style="padding: 10px 0; color: #666;">Referência</td>
-                    <td id="cob-ref-pix" style="padding: 10px 0; font-weight: 700;"></td>
-                </tr>
+        <div style="border:2px solid #4db696;border-radius:15px;padding:30px;margin-bottom:30px;background:#f0fdf4;">
+            <p style="font-size:11px;font-weight:800;text-transform:uppercase;color:#4db696;margin-bottom:20px;">📱 Dados para Pagamento — PIX</p>
+            <table style="width:100%;font-size:14px;color:#333;">
+                <tr><td style="padding:10px 0;border-bottom:1px solid #d1fae5;color:#666;width:40%;">Chave PIX</td><td style="padding:10px 0;border-bottom:1px solid #d1fae5;font-weight:800;font-size:18px;">11983456947</td></tr>
+                <tr><td style="padding:10px 0;border-bottom:1px solid #d1fae5;color:#666;">Tipo de Chave</td><td style="padding:10px 0;border-bottom:1px solid #d1fae5;font-weight:700;">Celular</td></tr>
+                <tr><td style="padding:10px 0;border-bottom:1px solid #d1fae5;color:#666;">Favorecido</td><td style="padding:10px 0;border-bottom:1px solid #d1fae5;font-weight:700;">Fairstage Intelligence Audiovisual</td></tr>
+                <tr><td style="padding:10px 0;color:#666;">Referência</td><td id="cob-ref-pix" style="padding:10px 0;font-weight:700;"></td></tr>
             </table>
         </div>
-
-        <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 20px; font-size: 10px; color: #999; line-height: 1.6;">
+        <div style="margin-top:20px;border-top:1px solid #eee;padding-top:20px;font-size:10px;color:#999;line-height:1.6;">
             <strong>Fairstage Intelligence Audiovisual</strong><br>
             * Após o pagamento, envie o comprovante para confirmarmos o recebimento.
         </div>
@@ -312,13 +256,11 @@
     <script>
         const DB_KEY = 'fairstage_pro_v5';
         const PIPE_KEY = 'fairstage_pipeline_v1';
-
         let db = JSON.parse(localStorage.getItem(DB_KEY)) || [];
         let pipeline = JSON.parse(localStorage.getItem(PIPE_KEY)) || [];
-        const months = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-        let dashFilter = 'todos'; // 'todos' | 'pagos'
+        const months = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"];
+        let dashFilter = 'todos';
 
-        // ── TAB SWITCHING ──────────────────────────────────────────
         function switchTab(tab) {
             document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -327,7 +269,6 @@
             updateUI();
         }
 
-        // ── FILTER TOGGLE (Dashboard) ──────────────────────────────
         function setFilter(f) {
             dashFilter = f;
             document.getElementById('filter-todos').classList.toggle('active', f === 'todos');
@@ -335,24 +276,20 @@
             updateUI();
         }
 
-        // ── PIPELINE: SALVAR PROPOSTA ──────────────────────────────
         function saveProposta() {
             const name = document.getElementById('pp-name').value || "Proposta";
             const val = parseFloat(document.getElementById('pp-value').value) || 0;
             if (val <= 0) return alert("Insira um valor.");
-
             const sigP = parseFloat(document.getElementById('pp-sig').value) / 100;
             const term = parseInt(document.getElementById('pp-term').value);
             const extra = parseFloat(document.getElementById('pp-extra').value) || 0;
             const isComm = document.getElementById('pp-comm').checked;
-
             const id = Date.now();
             pipeline.push({ id, name, val, sigP, term, extra, isComm, status: 'aberta' });
             localStorage.setItem(PIPE_KEY, JSON.stringify(pipeline));
             updateUI();
         }
 
-        // ── PIPELINE: GERAR PDF PROPOSTA (sem PIX) ────────────────
         function gerarPDFProposta() {
             const name = document.getElementById('pp-name').value || "Proposta";
             const val = parseFloat(document.getElementById('pp-value').value) || 0;
@@ -360,7 +297,6 @@
             const sigP = parseFloat(document.getElementById('pp-sig').value) / 100;
             const term = parseInt(document.getElementById('pp-term').value);
             const id = Date.now();
-
             renderPropostaPDF({ id, name, val, sigP, term });
         }
 
@@ -368,33 +304,25 @@
             document.getElementById('pdf-ref').innerText = "REF: FS-" + p.id;
             document.getElementById('pdf-client').innerText = p.name.toUpperCase();
             document.getElementById('pdf-total').innerText = p.val.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
             const sinal = p.val * p.sigP;
             const saldo = p.val * (1 - p.sigP);
-            let rows = `<tr><td style="padding:12px 0; border-bottom: 1px solid #eee;">Sinal de Entrada (${p.sigP*100}%)</td><td style="text-align:right; font-weight:bold;">R$ ${sinal.toLocaleString()}</td></tr>`;
-            if (p.sigP < 1) rows += `<tr><td style="padding:12px 0;">Saldo Remanescente (D+${p.term})</td><td style="text-align:right; font-weight:bold;">R$ ${saldo.toLocaleString()}</td></tr>`;
+            let rows = `<tr><td style="padding:12px 0;border-bottom:1px solid #eee;">Sinal de Entrada (${p.sigP*100}%)</td><td style="text-align:right;font-weight:bold;">R$ ${sinal.toLocaleString()}</td></tr>`;
+            if (p.sigP < 1) rows += `<tr><td style="padding:12px 0;">Saldo Remanescente (D+${p.term})</td><td style="text-align:right;font-weight:bold;">R$ ${saldo.toLocaleString()}</td></tr>`;
             document.getElementById('pdf-table-body').innerHTML = rows;
-
             exportPDF('pdf-render', `Proposta_Fairstage_${p.name}`);
         }
 
-        // ── PIPELINE: CONVERTER EM JOB ─────────────────────────────
         function convertToJob(pid) {
             const p = pipeline.find(x => x.id === pid);
             if (!p) return;
             if (!confirm(`Converter "${p.name}" em Job Fechado?`)) return;
-
-            // Perguntar mês
             const m = prompt("Mês de fechamento? (Ex: Março)", "Março");
             if (!m) return;
-
             const tax = parseFloat(document.getElementById('taxRate').value) / 100;
             const comm = parseFloat(document.getElementById('commRate').value) / 100;
             const jId = Date.now();
-
             db.push({
-                id: jId, month: m, job: p.name,
-                bruto: p.val * p.sigP, total: p.val,
+                id: jId, month: m, job: p.name, bruto: p.val * p.sigP, total: p.val,
                 tipo: `Sinal (${p.sigP*100}%)`,
                 liquido: (p.val * p.sigP) - ((p.val * p.sigP) * tax) - (p.isComm ? (p.val * p.sigP) * comm : 0) - p.extra,
                 sig: p.sigP * 100, term: p.term, pago: false
@@ -411,27 +339,22 @@
                     sig: p.sigP * 100, term: p.term, pago: false
                 });
             }
-
-            // Marcar proposta como convertida
             p.status = 'convertida';
             localStorage.setItem(DB_KEY, JSON.stringify(db));
             localStorage.setItem(PIPE_KEY, JSON.stringify(pipeline));
             updateUI();
         }
 
-        // ── PIPELINE: DELETAR PROPOSTA ─────────────────────────────
         function delProposta(pid) {
             pipeline = pipeline.filter(p => p.id !== pid);
             localStorage.setItem(PIPE_KEY, JSON.stringify(pipeline));
             updateUI();
         }
 
-        // ── LOG DE JOBS: REGISTRAR JOB DIRETO ─────────────────────
         function processJob() {
             const name = document.getElementById('jobName').value || "Job";
             const val = parseFloat(document.getElementById('jobValue').value) || 0;
             if (val <= 0) return alert("Insira um valor.");
-
             const tax = parseFloat(document.getElementById('taxRate').value) / 100;
             const comm = parseFloat(document.getElementById('commRate').value) / 100;
             const isComm = document.getElementById('externalComm').checked;
@@ -440,10 +363,8 @@
             const term = parseInt(document.getElementById('balanceTerm').value);
             const m = document.getElementById('signMonth').value;
             const jId = Date.now();
-
             db.push({
-                id: jId, month: m, job: name,
-                bruto: val * sigP, total: val,
+                id: jId, month: m, job: name, bruto: val * sigP, total: val,
                 tipo: `Sinal (${sigP*100}%)`,
                 liquido: (val * sigP) - ((val * sigP) * tax) - (isComm ? (val * sigP) * comm : 0) - extra,
                 sig: sigP * 100, term: term, pago: false
@@ -464,57 +385,46 @@
             switchTab('dashboard');
         }
 
-        // ── BOTÃO DE BAIXA (marcar como pago) ─────────────────────
         function darBaixa(idx) {
             db[idx].pago = true;
             localStorage.setItem(DB_KEY, JSON.stringify(db));
             updateUI();
         }
 
-        // ── PDF DE COBRANÇA (com PIX) ──────────────────────────────
         function generatePDF(jobId) {
             const parts = db.filter(j => j.id === jobId);
             const main = parts.find(p => p.tipo.includes("Sinal"));
             const saldo = parts.find(p => p.tipo.includes("Saldo"));
-
             document.getElementById('pdf-ref').innerText = "REF: FS-" + jobId;
             document.getElementById('pdf-client').innerText = main.job.toUpperCase();
             document.getElementById('pdf-total').innerText = main.total.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
-
-            let rows = `<tr><td style="padding:12px 0; border-bottom: 1px solid #eee;">Sinal de Entrada (${main.sig}%)</td><td style="text-align:right; font-weight:bold;">R$ ${main.bruto.toLocaleString()}</td></tr>`;
-            if (saldo) rows += `<tr><td style="padding:12px 0;">Saldo Remanescente (D+${main.term})</td><td style="text-align:right; font-weight:bold;">R$ ${saldo.bruto.toLocaleString()}</td></tr>`;
+            let rows = `<tr><td style="padding:12px 0;border-bottom:1px solid #eee;">Sinal de Entrada (${main.sig}%)</td><td style="text-align:right;font-weight:bold;">R$ ${main.bruto.toLocaleString()}</td></tr>`;
+            if (saldo) rows += `<tr><td style="padding:12px 0;">Saldo Remanescente (D+${main.term})</td><td style="text-align:right;font-weight:bold;">R$ ${saldo.bruto.toLocaleString()}</td></tr>`;
             document.getElementById('pdf-table-body').innerHTML = rows;
-
             exportPDF('pdf-render', `Proposta_Fairstage_${main.job}`);
         }
 
         function generateCobrancaPDF(idx) {
             const d = db[idx];
             const refId = 'FS-' + d.id + '-' + (d.tipo.includes('Sinal') ? 'S' : 'B');
-
             document.getElementById('cob-ref').innerText = "REF: " + refId;
             document.getElementById('cob-client').innerText = d.job.toUpperCase();
             document.getElementById('cob-valor').innerText = d.bruto.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             document.getElementById('cob-tipo').innerText = d.tipo + ' — ' + d.month;
             document.getElementById('cob-ref-pix').innerText = refId;
-
             exportPDF('pdf-cobranca', `Cobranca_Fairstage_${d.job}_${d.tipo.includes('Sinal') ? 'Sinal' : 'Saldo'}`);
         }
 
-        // ── EXPORTAR PDF (helper) ─────────────────────────────────
         function exportPDF(elementId, filename) {
             const element = document.getElementById(elementId);
             element.style.position = "static";
             element.style.left = "0";
-
             const opt = {
-                margin: 0.2,
-                filename: filename + '.pdf',
+                margin: 0.2, filename: filename + '.pdf',
                 image: { type: 'jpeg', quality: 0.98 },
                 html2canvas: { scale: 2, useCORS: true },
                 jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
             };
-
             setTimeout(() => {
                 html2pdf().set(opt).from(element).save().then(() => {
                     element.style.position = "absolute";
@@ -523,18 +433,12 @@
             }, 1000);
         }
 
-        // ── UPDATE UI ──────────────────────────────────────────────
-        function updateUI() {
-            renderPipeline();
-            renderDashboard();
-            renderBase();
-        }
+        function updateUI() { renderPipeline(); renderDashboard(); renderBase(); }
 
         function renderPipeline() {
             const abertas = pipeline.filter(p => p.status === 'aberta');
             const total = abertas.reduce((a, p) => a + p.val, 0);
             const convertidas = pipeline.filter(p => p.status === 'convertida').length;
-
             document.getElementById('pipeline-stats').innerHTML = `
                 <div class="flex justify-between items-center py-3 border-b border-white/5">
                     <span class="text-[10px] uppercase opacity-50">Propostas em Aberto</span>
@@ -547,9 +451,7 @@
                 <div class="flex justify-between items-center py-3">
                     <span class="text-[10px] uppercase opacity-50">Convertidas em Job</span>
                     <span class="font-bold opacity-60">${convertidas}</span>
-                </div>
-            `;
-
+                </div>`;
             document.getElementById('pipeline-list').innerHTML = abertas.map(p => `
                 <tr>
                     <td class="font-semibold">${p.name}</td>
@@ -561,38 +463,27 @@
                         <button onclick="convertToJob(${p.id})" class="bg-yellow-400/10 text-yellow-300 border border-yellow-400/30 px-2 py-1 rounded text-[9px] font-bold">✓ Fechar Job</button>
                         <button onclick="delProposta(${p.id})" class="text-red-400 opacity-30 hover:opacity-70 text-[9px] px-1">×</button>
                     </td>
-                </tr>
-            `).join('') || `<tr><td colspan="5" class="text-center opacity-30 text-[11px] py-8">Nenhuma proposta em aberto</td></tr>`;
+                </tr>`).join('') || `<tr><td colspan="5" class="text-center opacity-30 text-[11px] py-8">Nenhuma proposta em aberto</td></tr>`;
         }
 
         function renderDashboard() {
             const selMonth = document.getElementById('viewMonth').value;
             const jobsMês = db.filter(d => d.month === selMonth);
             const pagosMês = jobsMês.filter(d => d.pago);
-
-            // Caixa baseado no filtro
             const base = dashFilter === 'pagos' ? pagosMês : jobsMês;
             const caixaMês = base.reduce((acc, d) => acc + d.liquido, 0);
-            const caixaPago = pagosMês.reduce((acc, d) => acc + d.liquido, 0);
             const pendente = jobsMês.filter(d => !d.pago).reduce((acc, d) => acc + d.liquido, 0);
             const fixed = parseFloat(document.getElementById('fixedCosts').value) || 0;
 
             document.getElementById('caixaReal').innerText = caixaMês.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
             document.getElementById('caixaLabel').innerText = dashFilter === 'pagos' ? 'Caixa Confirmado (Pago)' : 'Dinheiro em Mão';
-            if (dashFilter === 'todos' && pendente > 0) {
-                document.getElementById('caixaPending').innerText = `⚠ ${pendente.toLocaleString('pt-br',{style:'currency',currency:'BRL'})} ainda pendente`;
-            } else {
-                document.getElementById('caixaPending').innerText = '';
-            }
-
+            document.getElementById('caixaPending').innerText = (dashFilter === 'todos' && pendente > 0) ? `⚠ ${pendente.toLocaleString('pt-br',{style:'currency',currency:'BRL'})} ainda pendente` : '';
             document.getElementById('dashJobList').innerHTML = jobsMês.map(j => `
                 <tr>
                     <td class="py-2 opacity-80">${j.job} <span class="opacity-30">(${j.tipo})</span></td>
                     <td class="text-right ${j.pago ? 'mint-text' : 'text-yellow-300'}">R$ ${j.liquido.toFixed(2)}</td>
                     <td class="text-right"><span class="badge ${j.pago ? 'badge-pago' : 'badge-pendente'}">${j.pago ? 'Pago' : 'Pendente'}</span></td>
-                </tr>
-            `).join('');
-
+                </tr>`).join('');
             document.getElementById('fatTotal').innerText = db.filter(d => d.month === selMonth && d.tipo.includes("Sinal")).reduce((acc, d) => acc + d.total, 0).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
 
             let socio = 0;
@@ -607,10 +498,10 @@
 
             const faixas = [document.getElementById('faixa1'), document.getElementById('faixa2'), document.getElementById('faixa3'), document.getElementById('faixa4')];
             faixas.forEach(f => { f.classList.remove('border-green-500'); f.style.opacity = '0.3'; });
-            if (caixaMês > 20000) { faixas[3].style.opacity = '1'; faixas[3].classList.add('border-green-500'); }
-            else if (caixaMês > 10000) { faixas[2].style.opacity = '1'; faixas[2].classList.add('border-green-500'); }
-            else if (caixaMês > 5000) { faixas[1].style.opacity = '1'; faixas[1].classList.add('border-green-500'); }
-            else if (caixaMês > 0) { faixas[0].style.opacity = '1'; faixas[0].classList.add('border-green-500'); }
+            if (caixaMês > 20000) { faixas[3].style.opacity='1'; faixas[3].classList.add('border-green-500'); }
+            else if (caixaMês > 10000) { faixas[2].style.opacity='1'; faixas[2].classList.add('border-green-500'); }
+            else if (caixaMês > 5000) { faixas[1].style.opacity='1'; faixas[1].classList.add('border-green-500'); }
+            else if (caixaMês > 0) { faixas[0].style.opacity='1'; faixas[0].classList.add('border-green-500'); }
         }
 
         function renderBase() {
@@ -621,22 +512,16 @@
                     <td>R$ ${d.bruto.toFixed(2)}</td>
                     <td>${d.tipo}</td>
                     <td class="mint-text font-bold">R$ ${d.liquido.toFixed(2)}</td>
-                    <td>
-                        <span class="badge ${d.pago ? 'badge-pago' : 'badge-pendente'}">${d.pago ? '✓ Pago' : 'Pendente'}</span>
-                    </td>
+                    <td><span class="badge ${d.pago ? 'badge-pago' : 'badge-pendente'}">${d.pago ? '✓ Pago' : 'Pendente'}</span></td>
                     <td class="flex gap-1 flex-wrap">
                         ${d.tipo.includes("Sinal") ? `<button onclick="generatePDF(${d.id})" class="bg-[#4db696]/10 text-[#4db696] border border-[#4db696]/30 px-2 py-1 rounded text-[9px] font-bold">Proposta</button>` : ''}
                         <button onclick="generateCobrancaPDF(${i})" class="bg-yellow-400/10 text-yellow-300 border border-yellow-400/30 px-2 py-1 rounded text-[9px] font-bold">💳 Cobrança</button>
                     </td>
                     <td>
-                        ${d.pago
-                            ? `<span class="btn-baixa pago">✓ Baixado</span>`
-                            : `<button onclick="darBaixa(${i})" class="btn-baixa">Dar Baixa</button>`
-                        }
+                        ${d.pago ? `<span class="btn-baixa pago">✓ Baixado</span>` : `<button onclick="darBaixa(${i})" class="btn-baixa">Dar Baixa</button>`}
                         <button onclick="del(${i})" class="text-red-400 opacity-20 hover:opacity-70 ml-2 text-xs">×</button>
                     </td>
-                </tr>
-            `).join('');
+                </tr>`).join('');
         }
 
         function del(i) { db.splice(i, 1); localStorage.setItem(DB_KEY, JSON.stringify(db)); updateUI(); }
@@ -649,8 +534,18 @@
             }
         }
 
-        // Init
         switchTab('pipeline');
     </script>
 </body>
 </html>
+```
+
+---
+
+Dois blocos completos para colar direto no VS Code. Estrutura no repositório:
+```
+/
+├── index.html       ← cola o 1º bloco
+├── dashboard.html   ← cola o 2º bloco
+├── Logo.png
+└── background.mp4
