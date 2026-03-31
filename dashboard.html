@@ -8,13 +8,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
-        :root { --fs-deep: #0f0e26; --fs-mint: #4db696; --fs-border: rgba(255,255,255,0.15); }
-        body, html { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background-color: #0f0e26; color: white; min-height: 100vh; }
-        #bg-video { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100vw; min-height: 100vh; width: auto; height: auto; object-fit: cover; z-index: 0; opacity: 0.25; pointer-events: none; }
-        #bg-overlay { position: fixed; inset: 0; background: linear-gradient(135deg, rgba(15,14,38,0.88) 0%, rgba(15,14,38,0.65) 50%, rgba(15,14,38,0.92) 100%); z-index: 1; pointer-events: none; }
-        .vision-container { position: relative; z-index: 10; background: rgba(15,14,38,0.82); backdrop-filter: blur(40px); border: 1px solid var(--fs-border); border-radius: 24px; width: 95%; max-width: 1200px; margin: 20px auto; padding: 20px; box-shadow: 0 40px 100px rgba(0,0,0,0.8); }
+        :root { --fs-deep: #000000; --fs-mint: #4db696; --fs-border: rgba(255, 255, 255, 0.08); }
+        body, html { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background-color: #000000; color: white; min-height: 100vh; }
+        #bg-video { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); min-width: 100vw; min-height: 100vh; width: auto; height: auto; object-fit: cover; z-index: 0; opacity: 0.45; pointer-events: none; }
+        #bg-overlay { position: fixed; inset: 0; background: linear-gradient(135deg, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.65) 50%, rgba(0,0,0,0.92) 100%); z-index: 1; pointer-events: none; }
+        .vision-container { position: relative; z-index: 10; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(50px); border: 1px solid var(--fs-border); border-radius: 24px; width: 95%; max-width: 1200px; margin: 20px auto; padding: 20px; box-shadow: 0 40px 100px rgba(0,0,0,0.8); }
         @media (min-width: 768px) { .vision-container { border-radius: 40px; margin: 40px auto; padding: 40px; } }
-        .glass-card { background: rgba(255,255,255,0.05); border: 1px solid var(--fs-border); border-radius: 20px; }
+        .glass-card { background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(50px); border: 1px solid var(--fs-border); border-radius: 20px; }
         .tab-btn { padding: 10px 14px; font-size: 10px; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid transparent; border-top: none; border-left: none; border-right: none; opacity: 0.4; transition: 0.3s; cursor: pointer; white-space: nowrap; background: none; color: white; }
         @media (min-width: 768px) { .tab-btn { padding: 12px 24px; font-size: 11px; } }
         .tab-btn.active { opacity: 1; border-bottom-color: var(--fs-mint); color: var(--fs-mint); }
